@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F6F6F1] text-[#202720] font-sans selection:bg-[#246348]/20 selection:text-[#1B4D37] antialiased;
+  }
+}
+
+/* Tabular figures for monospace ticket numbers and timestamps */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbars for clean light UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F6F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DCE2D9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BAC5B5;
+}
+
+/* Ticker marquee animation with reduced-motion and pause support */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-ticker {
+  display: flex;
+  width: 200%;
+  animation: ticker 30s linear infinite;
+}
+
+.animate-ticker:hover,
+.ticker-paused .animate-ticker {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
+    width: 100%;
+    transform: none;
+    overflow-x: auto;
+  }
+}
