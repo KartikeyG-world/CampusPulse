@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vscode
+.DS_Store
+.cache
+tests/.cache
+.env
+.env.*
+*.log
